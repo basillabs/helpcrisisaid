@@ -1,0 +1,12 @@
+.pathway-gothic {
+  font-family: 'Pathway Gothic One', sans-serif;
+}
+
+.bg-hero {
+  background-image: url(../img/hero.jpg);
+  background-attachment: fixed;
+}
+
+.shadow {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1);
+}
