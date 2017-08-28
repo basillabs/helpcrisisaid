@@ -7,27 +7,38 @@
   <link rel="stylesheet" type="text/css" href="css/tachyons.min.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
-<body class="sans-serif f4 lh-copy">
+<body class="sans-serif dark-gray f4 lh-copy">
   <!-- Header start -->
-  <div class="bg-hero cover white ph3">
+  <div class="bg-hero cover white ph3 vh-100">
     <div class="mw7 center pv4">
       <div class="flex">
         <h2 class="flex-auto f4 ttu tracked">Crisis Aid International</h2>
       </div>
       <div class="pt4 pb6">
         <h1 class="pathway-gothic ttu f1 f-subheadline-ns lh-solid fw5">Join us in helping the helpless in East Africa</h1>
-        <a href="https://vimeo.com/1084537" data-lity class="db bg-white dark-red no-underline pa4 mb2 mb0-ns mr2-ns db dib-ns tc tl-ns f5 ttu tracked fw6 lh-solid">Watch the film</a>
-        <div class="bg-white dark-red pa4 db dib-ns tc tl-ns f5 ttu tracked fw6 lh-solid">Donate Now</div>
+        <p>Since 2002, we've been feeding malnourished children and rescuing girls from sex slavery. But we need your help.</p>
       </div>
+    </div>
+    <div id="nav" class="bg-near-black w-100 absolute left-0 bottom-0">
+      <div class="mw7 center flex">
+        <a href="https://vimeo.com/1084537" data-lity class="flex-auto tc hover-bg-dark-gray white no-underline ph2 pv4 mb2 mb0-ns mr2-ns db dib-ns tc f5 ttu tracked fw6 lh-solid">Watch the film</a>
+        <a href="#" class="flex-auto tc hover-bg-dark-red white no-underline pa3 pv4 mb2 mb0-ns mr2-ns db dib-ns f5 ttu tracked fw6 lh-solid">Donate Now</a>
+        <a id="learn-more" href="#details" class="flex-auto tc hover-bg-dark-gray white no-underline ph2 pv4 db dib-ns f5 ttu tracked fw6 lh-solid">Learn more</a>
+      </div>
+      <!-- <div class="mw7 center pv3 flex">
+        <a href="https://vimeo.com/1084537" data-lity class="flex-auto tc db bg-gray white no-underline pa3 mb2 mb0-ns mr2-ns db dib-ns tc f5 ttu tracked fw6 lh-solid">Watch the film</a>
+        <div class="flex-auto tc bg-dark-red white pa3 mb2 mb0-ns mr2-ns db dib-ns f5 ttu tracked fw6 lh-solid">Donate Now</div>
+        <a id="learn-more" href="#details" class="flex-auto tc bg-gray white no-underline pa3 db dib-ns f5 ttu tracked fw6 lh-solid">Learn more</a>
+      </div> -->
     </div>
   </div>
   <!-- Header end -->
 
   <!-- Column start -->
-  <div class="mw7 center nt5">
+  <div class="mw7 center mt6" id="details">
 
     <!-- Callout start -->
-    <div class="ba bw3 b--white">
+    <!-- <div class="ba bw3 b--white">
       <div class="bg-white pa5 serif ba bw2 b--light-gray cf justify-start mb6">
         <div>
           <img src="img/pat.jpg" class="w5 h5 br-100 ml4 fr">
@@ -40,12 +51,13 @@ The Crisis Aid Family is large and growing and we invite you who refuse to "do n
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Callout end -->
 
     <!-- Section start -->
     <div class="ph3 ph0-l">
-      <div class="flex-ns mb4">
+      <h2 class="mb5 fw5">We're all about three things: saving lives, changing futures, and saving souls.</h2>
+      <div class="flex-ns mb5">
         <div>
           <!-- <img class="icon" src="img/icon1.png" /> -->
           <h3 class="pathway-gothic ttu f2 fw5 ma0">Saving Lives</h3>
@@ -57,7 +69,7 @@ The Crisis Aid Family is large and growing and we invite you who refuse to "do n
         </div>
       </div>
 
-      <div class="flex-ns flex-row-reverse mb4">
+      <div class="flex-ns flex-row-reverse mb5">
         <div>
           <!-- <img class="icon" src="img/icon2.png" /> -->
           <h3 class="pathway-gothic ttu f2 fw5 ma0">Changing Futures</h3>
@@ -98,9 +110,32 @@ The Crisis Aid Family is large and growing and we invite you who refuse to "do n
   <!-- Footer ends -->
 
   <script
-    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
   <script src="js/lity.min.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      var navTop = $('#nav').offset().top;
+      $(window).scroll(function(){
+        if ($(window).scrollTop() >= navTop) {
+          $('#nav').addClass('fixed top-0');
+          $('#nav').removeClass('bottom-0');
+        }
+        else {
+           $('#nav').removeClass('fixed top-0');
+           $('#nav').addClass('bottom-0');
+        }
+      });
+
+      $('#learn-more').click(function(e) {
+        e.preventDefault();
+        $('body, html').animate({
+          scrollTop: $('#details').offset().top
+        }, 375)
+      });
+    });
+  </script>
 </body>
 </html>
