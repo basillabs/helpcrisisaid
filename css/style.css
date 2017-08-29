@@ -2,9 +2,13 @@
   font-family: 'Pathway Gothic One', sans-serif;
 }
 
+.poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
 .bg-hero {
   background-image: url(../img/hero.jpg);
-  background-attachment: fixed;
+  /*background-attachment: fixed;*/
 }
 
 .shadow {
