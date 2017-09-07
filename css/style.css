@@ -8,6 +8,9 @@
 
 .bg-hero {
   background-image: url(../img/hero.jpg);
+}
+
+.bg-fixed {
   background-attachment: fixed;
 }
 
