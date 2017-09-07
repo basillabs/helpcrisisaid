@@ -8,7 +8,7 @@
 
 .bg-hero {
   background-image: url(../img/hero.jpg);
-  /*background-attachment: fixed;*/
+  background-attachment: fixed;
 }
 
 .shadow {
