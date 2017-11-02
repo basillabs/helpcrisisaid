@@ -7,25 +7,27 @@
   <link rel="stylesheet" type="text/css" href="css/tachyons.min.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
-<body class="rubik bg-black dark-gray f4 lh-copy">
-  <div class="bg-black white pa4 pv5-l mw7 center overflow-auto top-0 bottom-0">
+<body class="rubik bg-black white f4 lh-copy">
+  <div class="fixed top-0 bottom-0 left-0 right-0" id="bg" style="background-image: url(img/bg-refuge.jpg); background-size: cover; background-attachment: fixed; background-position: center; z-index: -1"></div>
+  <div class="pa4 pv6-l mw7 center">
     <img src="img/logo.svg" alt="Crisis Aid International" class="h3">
     <div class="pt4 pb5 flex-ns">
       <div>
         <h1 class="f2 lh-title fw5 mv0">Join the fight against sex trafficking</h1>
-        <p class="mb4">Tens of thousands of girls in East Africa are forced to sell their bodies every day just to survive. You can help us do something about it.</p>
-              <a href="https://secure.acceptiva.com/?cst=df678b" id="hero-donate" class="bg-dark-red hover-bg-red white br2 pa4 mt4 mb5 db tc f4 ttu tracked fw5 lh-solid no-underline" data-lity>Donate Now</a>
-        <div class="aspect-ratio aspect-ratio--16x9">
-          <iframe class="aspect-ratio--object" src="https://player.vimeo.com/video/230599746?autoplay=1&autopause=0&loop=1&color=e7040f&title=0&byline=0&portrait=0" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <p class="mt2 mb6 f3">Tens of thousands of girls in East Africa are forced to sell their bodies every day just to survive. Help us do something about it.</p>
+        <div class="aspect-ratio aspect-ratio--16x9 mb4">
+          <iframe class="aspect-ratio--object" src="https://player.vimeo.com/video/230599746?autoplay=1&autopause=0&loop=1&color=e7040f&title=0&byline=0&portrait=0&background=1" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         </div>
-        <p class="white">In 2006, Crisis Aid rescued its first girl from a red light district in East Africa. Ten years later, we operate over 200 refuge homes in East Africa and have helped over 600 girls transform their lives.</p>
-        <ul class="white">
+        <p>In 2006, Crisis Aid rescued its first girl from a red light district in East Africa. Ten years later, we operate multiple refuge homes in East Africa and have helped over 600 girls transform their lives. We provide…</p>
+        <ul>
           <li class="mb3"><strong>Counseling</strong>: From the safety of a refuge home, girls begin recovering from trauma.
           <li class="mb3"><strong>Vocational training</strong>: Girls learn skills like leatherworking, hairdressing, and computer skills. Upon graduation, we help them find new jobs.</li>
           <li class="mb3"><strong>Church</strong>: Over 90% of the the girls in our programs receive Jesus as their Lord and Savior.</li>
         </ul>
-        <p class="white">Join us in changing these lives. We've rescued over 600 girls, and with your support, we'll help many more.</p>
-        <a href="https://secure.acceptiva.com/?cst=df678b" id="hero-donate" class="bg-dark-red hover-bg-red white br2 pa4 mt4 mb5 db tc f4 ttu tracked fw5 lh-solid no-underline" data-lity>Donate Now</a>
+        <div class="mt6 tc">
+          <p class="f3">Ready to change lives with us?</p>
+          <a href="https://secure.acceptiva.com/?cst=df678b" id="hero-donate" class="bg-dark-red hover-bg-red white br2 pa4 ph5 mb5 dib tc f4 ttu tracked fw5 lh-solid no-underline" data-lity>Donate Now</a>
+        </div>
         <p class="white-80 f5 bg-white-10 mt4 pa3">
           <a class="white-80 hover-white" href="https://www.crisisaid.org/crisis-aid/">Crisis Aid International</a> has over 17 years of experience fighting sex trafficking and malnourishment in 11 different countries. We're ranked in the top 2% of charities by <a class="white-80 hover-white" href="https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=11448#.VzYiXBMrJE5">Charity Navigator</a> after receiving 9 consecutive 4-star ratings. We're a Platinum-level, top 1% viewed <a class="white-80 hover-white" href="https://www.guidestar.org/profile/30-0060905">GuideStar Exchange</a> participant, demonstrating our commitment to transparency. We're also accredited by the <a class="white-80 hover-white" href="http://www.ecfa.org/MemberProfile.aspx?ID=16107">Evangelical Council for Financial Accountability</a>.
         </p>
@@ -41,21 +43,13 @@
 
   <script type="text/javascript">
     $(function() {
-      var heroDonateTop = $('#hero-donate').offset().top;
+      var documentHeight = $(document).height();
+      var colorTransitionBegin = Math.ceil(documentHeight / 4);
+      var maxDifference = Math.ceil(documentHeight / 3);
       $(window).scroll(function(){
-        if ($(window).scrollTop() >= heroDonateTop) {
-          $('#nav-donate').removeClass('dn');
-        }
-        else {
-           $('#nav-donate').addClass('dn');
-        }
-      });
-
-      $('#learn-more').click(function(e) {
-        e.preventDefault();
-        $('body, html').animate({
-          scrollTop: $('#details').offset().top
-        }, 375)
+        var scrollTop = $(window).scrollTop();
+        var opacity = 1 - Math.max((scrollTop - colorTransitionBegin) / maxDifference, 0);
+        $('#bg').css('opacity', opacity);
       });
     });
   </script>
