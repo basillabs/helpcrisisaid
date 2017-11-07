@@ -7,33 +7,6 @@
   <link rel="stylesheet" type="text/css" href="css/tachyons.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style media="screen">
-    .donation {
-      pointer-events: none;
-    }
-
-    .donation--visible {
-      pointer-events: auto;
-    }
-
-    .donation-scrim {
-      transition: all 0.375s cubic-bezier(0.4, 0.2, 0, 1);
-      opacity: 0;
-    }
-
-    .donation-iframe {
-      transition: all 0.375s cubic-bezier(0.4, 0.2, 0, 1);
-      transform: translateX(100%);
-    }
-
-    .donation--visible .donation-scrim {
-      opacity: 1;
-    }
-
-    .donation--visible .donation-iframe {
-      transform: translateX(0);
-    }
-  </style>
 </head>
 <body class="rubik bg-black white f4 lh-copy">
   <div class="fixed top-0 bottom-0 left-0 right-0" id="bg" style="background-image: url(img/bg-feeding.jpg); background-size: cover; background-attachment: fixed; background-position: center; z-index: -1"></div>
@@ -70,31 +43,6 @@
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
-  <script src="js/lity.min.js" charset="utf-8"></script>
-
-  <script type="text/javascript">
-    $(function() {
-      var documentHeight = $(document).height();
-      var colorTransitionBegin = Math.ceil(documentHeight / 4);
-      var maxDifference = Math.ceil(documentHeight / 3);
-      $(window).scroll(function(){
-        var scrollTop = $(window).scrollTop();
-        var opacity = 1 - Math.max((scrollTop - colorTransitionBegin) / maxDifference, 0);
-        $('#bg').css('opacity', opacity);
-      });
-
-      $('#scrim').click(function() {
-        $('#donation').removeClass('donation--visible');
-        $('body').removeClass('overflow-hidden');
-      });
-
-
-      $('#hero-donate').click(function(e) {
-        e.preventDefault();
-        $('#donation').addClass('donation--visible')
-        $('body').addClass('overflow-hidden');
-      });
-    });
-  </script>
+  <script src="js/script.js" charset="utf-8"></script>
 </body>
 </html>

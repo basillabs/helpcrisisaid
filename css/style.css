@@ -1,23 +1,29 @@
-.pathway-gothic {
-  font-family: 'Pathway Gothic One', sans-serif;
-}
-
 .rubik {
   font-family: 'Rubik', sans-serif;
  }
 
-.libre-franklin {
-  font-family: 'Libre Franklin', sans-serif;
+.donation {
+  pointer-events: none;
 }
 
-.bg-hero {
-  background-image: url(../img/hero.jpg);
+.donation--visible {
+  pointer-events: auto;
 }
 
-.bg-fixed {
-  background-attachment: fixed;
+.donation-scrim {
+  transition: all 0.375s cubic-bezier(0.4, 0.2, 0, 1);
+  opacity: 0;
 }
 
-.shadow {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 0 2px rgba(0, 0, 0, 0.1);
+.donation-iframe {
+  transition: all 0.375s cubic-bezier(0.4, 0.2, 0, 1);
+  transform: translateX(100%);
+}
+
+.donation--visible .donation-scrim {
+  opacity: 1;
+}
+
+.donation--visible .donation-iframe {
+  transform: translateX(0);
 }
