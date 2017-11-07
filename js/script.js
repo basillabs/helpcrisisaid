@@ -11,14 +11,14 @@ $(function() {
   var donationLink = $('#donate-button').attr('href');
   $('#donate-button').click(function(e) {
     e.preventDefault();
-    if (!$('#donation').attr('src')) {
-      $('#donation').attr('src', donationLink);
+    if (!$('#donation-iframe').attr('src')) {
+      $('#donation-iframe').attr('src', donationLink);
     }
     $('#donation').addClass('donation--visible')
     $('body').addClass('overflow-hidden');
   });
 
-  $('#scrim').click(function() {
+  $('#scrim, #close').click(function() {
     $('#donation').removeClass('donation--visible');
     $('body').removeClass('overflow-hidden');
   });

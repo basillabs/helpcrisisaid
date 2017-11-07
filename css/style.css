@@ -15,7 +15,7 @@
   opacity: 0;
 }
 
-.donation-iframe {
+.donation-panel {
   transition: all 0.375s cubic-bezier(0.4, 0.2, 0, 1);
   transform: translateX(100%);
 }
@@ -24,6 +24,6 @@
   opacity: 1;
 }
 
-.donation--visible .donation-iframe {
+.donation--visible .donation-panel {
   transform: translateX(0);
 }
