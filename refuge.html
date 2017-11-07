@@ -7,10 +7,37 @@
   <link rel="stylesheet" type="text/css" href="css/tachyons.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style media="screen">
+    .donation {
+      pointer-events: none;
+    }
+
+    .donation--visible {
+      pointer-events: auto;
+    }
+
+    .donation-scrim {
+      transition: all 0.375s cubic-bezier(0.4, 0.2, 0, 1);
+      opacity: 0;
+    }
+
+    .donation-iframe {
+      transition: all 0.375s cubic-bezier(0.4, 0.2, 0, 1);
+      transform: translateX(100%);
+    }
+
+    .donation--visible .donation-scrim {
+      opacity: 1;
+    }
+
+    .donation--visible .donation-iframe {
+      transform: translateX(0);
+    }
+  </style>
 </head>
 <body class="rubik bg-black white f4 lh-copy">
   <div class="fixed top-0 bottom-0 left-0 right-0" id="bg" style="background-image: url(img/bg-refuge.jpg); background-size: cover; background-attachment: fixed; background-position: center; z-index: -1"></div>
-  <div class="pa4 pv6-l mw7 center">
+  <div class="pa4 pt6-ns mw7 center">
     <img src="img/logo.svg" alt="Crisis Aid International" class="h3">
     <div class="pt4 pb5 flex-ns">
       <div>
@@ -27,12 +54,19 @@
         </ul>
         <div class="mt6 tc">
           <p class="f3">Ready to change lives with us?</p>
-          <a href="https://secure.acceptiva.com/?cst=df678b" id="hero-donate" class="bg-dark-red hover-bg-red white br2 pa4 ph5 mb5 dib tc f4 ttu tracked fw5 lh-solid no-underline" data-lity>Donate Now</a>
+          <a href="https://secure.acceptiva.com/?cst=df678b" id="hero-donate" class="bg-dark-red hover-bg-red white br2 pa4 ph5 mb5 dib tc f4 ttu tracked fw5 lh-solid no-underline">Donate Now</a>
         </div>
-        <p class="white-80 f5 bg-white-10 mt4 pa3">
+        <p class="white-80 f5 bg-white-10 mt4 mb0 pa3">
           <a class="white-80 hover-white" href="https://www.crisisaid.org/crisis-aid/">Crisis Aid International</a> has over 17 years of experience fighting sex trafficking and malnourishment in 11 different countries. We're ranked in the top 2% of charities by <a class="white-80 hover-white" href="https://www.charitynavigator.org/index.cfm?bay=search.summary&orgid=11448#.VzYiXBMrJE5">Charity Navigator</a> after receiving 9 consecutive 4-star ratings. We're a Platinum-level, top 1% viewed <a class="white-80 hover-white" href="https://www.guidestar.org/profile/30-0060905">GuideStar Exchange</a> participant, demonstrating our commitment to transparency. We're also accredited by the <a class="white-80 hover-white" href="http://www.ecfa.org/MemberProfile.aspx?ID=16107">Evangelical Council for Financial Accountability</a>.
         </p>
       </div>
+    </div>
+  </div>
+
+  <div class="donation" id="donation">
+    <div class="fixed top-0 bottom-0 left-0 right-0 bg-black-70 donation-scrim" id="scrim"></div>
+    <div class="fixed top-0 bottom-0 right-0 bg-white bn w-100 w-70-ns mw7 donation-iframe">
+      <iframe src="https://secure.acceptiva.com/?cst=df678b" width="100%" height="100%"></iframe>
     </div>
   </div>
 
@@ -51,6 +85,18 @@
         var scrollTop = $(window).scrollTop();
         var opacity = 1 - Math.max((scrollTop - colorTransitionBegin) / maxDifference, 0);
         $('#bg').css('opacity', opacity);
+      });
+
+      $('#scrim').click(function() {
+        $('#donation').removeClass('donation--visible');
+        $('body').removeClass('overflow-hidden');
+      });
+
+
+      $('#hero-donate').click(function(e) {
+        e.preventDefault();
+        $('#donation').addClass('donation--visible')
+        $('body').addClass('overflow-hidden');
       });
     });
   </script>
