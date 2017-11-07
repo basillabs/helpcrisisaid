@@ -9,7 +9,7 @@ $(function() {
   });
 
   var donationLink = $('#donate-button').attr('href');
-  $('#donate-button').click(function(e) {
+  $('#donate-button').on('click touchstart', function(e) {
     e.preventDefault();
     if (!$('#donation-iframe').attr('src')) {
       $('#donation-iframe').attr('src', donationLink);
